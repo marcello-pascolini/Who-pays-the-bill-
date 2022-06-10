@@ -2,15 +2,22 @@
 
 const App = {
     data(){
-        return {
-            hello: 'hello',
-            isVisible: false,
+        return {    
             inputName: '',
             names:[],
             error: '',
-            showError: false
+            showError: false,
+            step1: true,
+            step2: false,
+            result: ''
         }
     },
+    computed: {
+        isReady(){
+            return this.names.length > 1
+        }
+    }
+    ,
     methods:{
         addNameToList(){
             const userName = this.inputName.toUpperCase()
@@ -18,7 +25,6 @@ const App = {
                 this.names.push(userName)
                 this.inputName = ''
                 this.showError = false
-                console.log(this.names);
             }else{
                 this.showError = true
             }
@@ -39,6 +45,22 @@ const App = {
         },
         removeName(index){
             this.names.splice(index,1)
+        },
+        getRandomName(){
+            return this.names[Math.floor(Math.random() * this.names.length)]
+        }
+        ,
+        generateResult(){
+            let randomName = this.getRandomName()
+            this.result = randomName
+            
+        }
+        ,
+        showResult(){
+            
+            this.step1 = false
+            this.step2 = true
+            this.generateResult()
         }
     }
 }

@@ -44,9 +44,10 @@ body{
         #35495e 100%
     );
     font-family: 'Bebas Neue', cursive;
+    height: 100vh;
 
 }
-.names{
+.container{
     position: relative;
 }
 .app{
@@ -55,7 +56,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    flex-direction: column;
+    height: 70%;
 
 }
 .title{
@@ -99,7 +101,7 @@ body{
     padding: 1rem;
     transition: .5s;
 }
-.results{
+.names{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,11 +117,41 @@ body{
     border: 2px solid white;
     font-size: 24px;
     padding: .5rem 1.2rem;
-    transition: .5s;
+    transition: .3s;
 }
 
 .names-card:hover{
-    background-color: white;
-    color: #42b883;
+    background-color: #C70000;
     cursor: pointer;
+    border-color: #C70000;
+}
+.winner-box{
+    position: absolute;
+    padding: 1rem;
+    left:50%;
+    bottom: -125%;
+    transform: translateX(-50%);
+}
+.winner-button{
+    all: unset;
+    cursor: pointer;
+    border: 2px solid white;
+    padding: .5rem 1.5rem;
+    font-size: 24px;
+    
+   
+}
+.winner-button:hover{
+   
+    animation: tremble .3s infinite;
+}
+@keyframes tremble{
+    0% { transform: rotate( 0deg) }
+    25% { transform: rotate(-2deg) }
+    50% { transform: rotate( 2deg) }
+    75% { transform: rotate( -2deg) }
+    100% { transform: rotate( 0deg) }
+}
+.looser{
+    font-style: italic;
 }

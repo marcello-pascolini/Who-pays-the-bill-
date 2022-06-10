@@ -8,12 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/images/bill.png">
     <script src="https://unpkg.com/vue@3"></script>
-    <title>Document</title>
+    <title>Who pays the bill?</title>
 </head>
 <body>
     <div id="app" class="app" v-cloak>
-        <div id="names" class="names">
+
+        <div class="container" v-if="step1">
+
             <div class="title">
                 <h1>Who pay the bill?</h1>
             </div>
@@ -26,12 +29,14 @@
                     />
                 <button @click='addNameToList' class="add-button">Add</button>
             </div>
+
             <div class="error"
                 v-if="showError"    
             >
                 {{error}}
             </div>
-            <div id="results" class="results">
+
+            <div id="names" class="names">
                 <div
                     v-for="(name, index) in names"
                     :key="name"
@@ -39,10 +44,23 @@
                     class="names-card"
                 >
                 {{name}}
-    
                 </div>
     
             </div>
+            <div v-if="isReady" class="winner-box">
+                <button class="winner-button" @click="showResult">
+                    Ruin friendship
+                </button>
+            </div>
+        </div>
+
+        <div class="results" id="results" v-if="step2"> 
+            <h1>
+                Wallet on the table dude : 
+                <span class="looser">
+                    {{result}}
+                </span>
+            </h1>
         </div>
 
     </div>
