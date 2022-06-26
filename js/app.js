@@ -1,5 +1,3 @@
-
-
 const App = {
     data(){
         return {    
@@ -53,7 +51,6 @@ const App = {
         generateResult(){
             let randomName = this.getRandomName()
             this.result = randomName
-            
         }
         ,
         showResult(){
@@ -61,6 +58,12 @@ const App = {
             this.step1 = false
             this.step2 = true
             this.generateResult()
+        },
+        resetApp(){
+            this.step2 = false
+            this.step1 = true
+            this.names = []
+            this.result = ''
         }
     }
 }
