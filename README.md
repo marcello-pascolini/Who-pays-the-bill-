@@ -17,3 +17,5 @@ I used @event and :property binding to manage the data flow, you can simply:
 I used Vue3 and base CSS3 to apply stylesheets
 
 ## Layout
+
+![This is and image](./images/whopays.png)
